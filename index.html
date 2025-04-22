@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Admin - foodpanda</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div id="auth-container">
+        <div class="auth-form" id="login-form">
+            <h2><i class="fas fa-utensils"></i> Admin Login</h2>
+            <input type="email" id="login-email" placeholder="Email">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="showSignup()">Sign up</a></p>
+        </div>
+
+        <div class="auth-form" id="signup-form" style="display:none">
+            <h2><i class="fas fa-store"></i> Create Account</h2>
+            <input type="text" id="signup-name" placeholder="Your Name">
+            <input type="text" id="signup-restaurant" placeholder="Restaurant Name">
+            <input type="email" id="signup-email" placeholder="Email">
+            <input type="password" id="signup-password" placeholder="Password">
+            <button onclick="signup()">Sign Up</button>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+    </div>
+
+    <div id="dashboard" style="display:none">
+        <header>
+            <h1><i class="fas fa-store-alt"></i> <span id="restaurant-title"></span></h1>
+            <button onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </header>
+
+        <div class="container">
+            <nav>
+                <button class="active" onclick="showSection('categories')"><i class="fas fa-tags"></i> Categories</button>
+                <button onclick="showSection('menu')"><i class="fas fa-hamburger"></i> Menu Items</button>
+            </nav>
+
+            <main>
+                <div id="categories-section">
+                    <h2><i class="fas fa-tag"></i> Manage Categories</h2>
+                    <div class="add-form">
+                        <input type="text" id="new-category" placeholder="New category name">
+                        <button onclick="addCategory()"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+                    <div id="category-list" class="card-container"></div>
+                </div>
+
+                <div id="menu-section" style="display:none">
+                    <h2><i class="fas fa-book-open"></i> Manage Menu</h2>
+                    <div class="add-form">
+                        <select id="item-category"></select>
+                        <input type="text" id="item-name" placeholder="Item name">
+                        <input type="text" id="item-desc" placeholder="Description">
+                        <input type="number" id="item-price" placeholder="Price">
+                        <input type="text" id="item-image" placeholder="Image URL">
+                        <button onclick="addMenuItem()"><i class="fas fa-plus"></i> Add Item</button>
+                    </div>
+                    <div id="item-list" class="card-container"></div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
